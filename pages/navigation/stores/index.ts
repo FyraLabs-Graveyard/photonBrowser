@@ -1,16 +1,18 @@
 import { RendererEvents } from "./../../../utils/constants";
 import { action, autorun, makeObservable, observable } from "mobx";
-import { createContext, useContext } from "react";
+import { createContext, createRef, Ref, useContext } from "react";
 import Tab from "./tab";
 
 class NavigationStore {
   public tabs: Tab[] = [];
   public focusedTabID?: string = undefined;
+  public ref: React.RefObject<HTMLInputElement> = createRef();
 
   constructor() {
     makeObservable(this, {
       focusedTabID: observable,
       tabs: observable,
+      ref: observable,
       focusTab: action,
       addTab: action,
       removeTab: action,
@@ -46,6 +48,13 @@ class NavigationStore {
             color,
           })
         );
+
+        console.log(this.ref?.current);
+        if (this.ref?.current)
+          this.ref.current.scrollTo({
+            left: this.ref.current.scrollWidth,
+            behavior: "smooth",
+          });
       }
     );
 
