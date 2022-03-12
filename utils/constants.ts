@@ -12,6 +12,7 @@ export enum TabEvents {
 
 export enum SearchEvents {
   LOAD_URL = "LOAD_URL",
+  RESIZE = "RESIZE",
   SHOW_SEARCH = "SHOW_SEARCH",
   HIDE_SEARCH = "HIDE_SEARCH",
   UPDATE_SEARCH_QUERY = "UPDATE_SEARCH_QUERY",

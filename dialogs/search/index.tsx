@@ -1,6 +1,6 @@
 import { Icon, RootObject } from "@getskye/suggest/dist/engines/ddg";
 import { observer } from "mobx-react-lite";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { render } from "react-dom";
 import SearchStore, { SearchContext, useSearch } from "./stores";
 import { faSearch } from "@fortawesome/pro-regular-svg-icons";
@@ -8,14 +8,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Company from "./suggestions/company";
 import Abstract from "./suggestions/abstract";
 import Software from "./suggestions/software";
+import { useElementSize } from "usehooks-ts";
 
 const Search = observer(() => {
   const search = useSearch();
-
+  const [searchRef, { height }] = useElementSize();
   console.log(search.instantAnswer);
+
+  useEffect(() => {
+    window.skye.resize(height + 40);
+  }, [height]);
+
   return (
-    <div className="flex flex-1 justify-center w-screen h-screen px-auto">
-      <div className="mt-1 bg-white rounded-lg shadow-lg w-[440px] h-[480px]">
+    <div className="flex flex-1 justify-center w-screen px-auto">
+      <div
+        className="mt-1 bg-white rounded-lg shadow-lg w-[440px] max-h-[480px]"
+        ref={searchRef}
+      >
         {search?.instantAnswer?.Entity === "company" ? (
           <Company {...search.instantAnswer} />
         ) : search?.instantAnswer?.Entity === "software" ? (

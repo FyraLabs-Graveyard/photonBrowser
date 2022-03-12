@@ -38,6 +38,7 @@ specifiers:
   tailwindcss: ^3.0.23
   ts-node: ^10.7.0
   typescript: ^4.6.2
+  usehooks-ts: ^2.4.2
   vite: ^2.8.6
   zod: ^3.13.4
 
@@ -66,6 +67,7 @@ dependencies:
   react-query: 3.34.16_react-dom@17.0.2+react@17.0.2
   react-use: 17.3.2_react-dom@17.0.2+react@17.0.2
   typescript: 4.6.2
+  usehooks-ts: 2.4.2_react@17.0.2
   zod: 3.13.4
 
 devDependencies:
@@ -2976,6 +2978,14 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       prepend-http: 2.0.0
+
+  /usehooks-ts/2.4.2_react@17.0.2:
+    resolution: {integrity: sha512-YqD5HaloGpRSoNaXhAxR+CHTKda44mDtFqNJk5gRuy4qeHVxpp8ycN3LY0txYqNudCVuAk1f8m6M0ojQ5Aph8Q==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 17.0.2
+    dev: false
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}

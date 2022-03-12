@@ -65,8 +65,7 @@ const loadSearchEvents = (windowManager: EngineWindowManager) => {
       });
     }
     const suggestions = await ddg(encodeURIComponent(query));
-    suggestions.suggestions.length = 5;
-    console.log(suggestions);
+    if (suggestions.suggestions.length > 5) suggestions.suggestions.length = 5;
     search?.browserView?.webContents?.send(
       SearchRendererEvents.SEARCH_QUERY_UPDATED,
       query,
@@ -83,6 +82,15 @@ const loadSearchEvents = (windowManager: EngineWindowManager) => {
     }
     if (zod.string().url().safeParse(url))
       win.tabManager.activeTab.browserView.webContents.loadURL(url);
+  });
+
+  ipcMain.handle(SearchEvents.RESIZE, (event, height) => {
+    if (!search) return;
+
+    search.bounds = {
+      ...search.bounds,
+      height,
+    };
   });
 };
 
