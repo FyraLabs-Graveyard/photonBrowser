@@ -48,8 +48,6 @@ class NavigationStore {
             color,
           })
         );
-
-        console.log(this.ref?.current);
         if (this.ref?.current)
           this.ref.current.scrollTo({
             left: this.ref.current.scrollWidth,

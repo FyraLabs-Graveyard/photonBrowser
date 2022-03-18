@@ -209,7 +209,7 @@ const loadTabEvents = (windowManager: EngineWindowManager) => {
       resetBounds(win);
     });
 
-    createTab(win)("http://localhost:3000/pages/welcome/index.html");
+    createTab(win)("https://duckduckgo.com");
   };
 };
 

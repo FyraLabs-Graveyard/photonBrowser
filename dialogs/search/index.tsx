@@ -22,7 +22,7 @@ const Search = observer(() => {
   return (
     <div className="flex flex-1 justify-center w-screen px-auto">
       <div
-        className="mt-1 bg-white rounded-lg shadow-lg w-[440px] max-h-[480px]"
+        className="mt-1 bg-white dark:bg-black rounded-lg shadow-lg w-[440px] max-h-[480px]"
         ref={searchRef}
       >
         {search?.instantAnswer?.Entity === "company" ? (
@@ -38,11 +38,15 @@ const Search = observer(() => {
         )}
         {!!search.searchEngineSuggestions.length && (
           <div className="p-4">
-            <h2 className="text-xs text-black pb-1">DuckDuckGo</h2>
+            <h2 className="text-xs text-black dark:text-white pb-1">
+              DuckDuckGo
+            </h2>
             <div className="flex flex-col gap-1">
               {search.searchEngineSuggestions.map((result, index) => (
                 <Fragment key={index}>
-                  {index !== 0 && <hr className="border-gray-200" />}
+                  {index !== 0 && (
+                    <hr className="border-neutral-200 dark:border-neutral-800" />
+                  )}
                   <a
                     className="py-1 cursor-pointer flex items-center gap-2"
                     onClick={() =>
@@ -53,7 +57,7 @@ const Search = observer(() => {
                   >
                     <FontAwesomeIcon
                       icon={faSearch}
-                      className="text-gray-500"
+                      className="text-neutral-500"
                     />
                     {result}
                   </a>

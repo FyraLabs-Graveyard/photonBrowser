@@ -1,12 +1,25 @@
 import { app, BrowserWindow, globalShortcut, ipcMain } from "electron";
 import { platform } from "os";
-import { EngineWindowManager } from "@getskye/engine";
+import { EngineSession, EngineWindowManager } from "@getskye/engine";
 import path from "path";
 import loadTabEvents from "./events/tabs";
 import { RendererEvents } from "../utils/constants";
 import loadSearchEvents from "./events/search";
+import { string } from "zod";
 
 app.once("ready", async () => {
+  const defaultSession = new EngineSession({
+    id: "default",
+    persist: true,
+    cache: true,
+    storageProvider: {
+      get: async <undefined>(key: string) => {
+        return undefined;
+      },
+      set: async <undefined>(key: string, value: any) => {},
+      remove: async (key: string) => {},
+    },
+  });
   const windowManager = new EngineWindowManager();
   const win = windowManager.createWindow({
     offset: {
@@ -31,6 +44,7 @@ app.once("ready", async () => {
       preload: path.join(__dirname, "..", "preloads", "navigation.js"),
     },
     waitForLoad: true,
+    session: defaultSession,
   });
 
   win.tabManager.on("activeTabChanged", (tab) => {
@@ -71,7 +85,7 @@ app.once("ready", async () => {
     window.hide();
   });
   globalShortcut.register("Command+P", () => {
-    window.show();
+    // window.show();
   });
 });
 

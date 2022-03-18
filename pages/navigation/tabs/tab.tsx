@@ -52,10 +52,12 @@ const Tab: FC<{
       key={tab.id}
       value={tab}
       className={classNames({
-        "justify-between p-2 w-56 rounded-lg min-w-[100px] text-xs text-gray-700 hover:bg-gray-200 flex items-center select-none":
+        "text-neutral-700 hover:bg-neutral-200": true,
+        "dark:text-neutral-200 dark:hover:bg-neutral-800": true,
+        "justify-between p-2 w-56 rounded-lg min-w-[100px] text-xs flex items-center select-none":
           true,
-        "bg-gray-100": navigation.focusedTabID !== id,
-        "bg-gray-200": navigation.focusedTabID === id,
+        "bg-neutral-100 dark:bg-neutral-900": navigation.focusedTabID !== id,
+        "bg-neutral-200 dark:bg-neutral-800": navigation.focusedTabID === id,
         [className]: !!navigation.focusedTab?.color,
       })}
       onClick={tab.focus}
@@ -71,7 +73,7 @@ const Tab: FC<{
       </div>
       <button
         className={classNames({
-          "w-5 h-5 min-w-[1.25rem] min-h-[1.25rem] hover:bg-gray-300 rounded":
+          "w-5 h-5 min-w-[1.25rem] min-h-[1.25rem] hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded":
             true,
           [closeClassName]: !!navigation.focusedTab?.color,
         })}

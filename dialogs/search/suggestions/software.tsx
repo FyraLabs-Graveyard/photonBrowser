@@ -13,7 +13,7 @@ const Software = (instantAnswer: RootObject) => {
         )}
         <h1 className="text-sm cursor-pointer">{instantAnswer.Heading}</h1>
       </div>
-      <hr className="border-gray-100" />
+      <hr className="border-neutral-100 dark:border-neutral-800" />
     </>
   );
 };

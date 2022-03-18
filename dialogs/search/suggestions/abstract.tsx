@@ -11,7 +11,7 @@ const Abstract = (instantAnswer: RootObject) => {
     >
       <div className="flex items-center gap-1 font-medium cursor-pointer">
         <h1 className="text-sm cursor-pointer">{instantAnswer.Heading}</h1>
-        <a className="text-xs text-gray-500 after:content-['_↗']">
+        <a className="text-xs text-neutral-500 after:content-['_↗']">
           - {instantAnswer.AbstractSource}
         </a>
       </div>

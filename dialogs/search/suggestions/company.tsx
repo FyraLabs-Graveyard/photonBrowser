@@ -21,14 +21,14 @@ const Company = (instantAnswer: RootObject) => {
           />
         )}
         <h1 className="text-sm cursor-pointer">{instantAnswer.Heading}</h1>
-        <a className="text-xs text-gray-500">
+        <a className="text-xs text-neutral-500">
           -{" "}
-          {"FirstURL" in companyResult
+          {companyResult?.FirstURL
             ? new URL(companyResult.FirstURL).hostname
             : ""}
         </a>
       </div>
-      <hr className="border-gray-100" />
+      <hr className="border-neutral-100 dark:border-neutral-800" />
     </>
   );
 };

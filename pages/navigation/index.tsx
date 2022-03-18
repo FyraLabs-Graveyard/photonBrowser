@@ -16,6 +16,7 @@ import { useCss } from "react-use";
 import { generateBGHex } from "../../utils/color";
 import classNames from "classnames";
 import Search from "./search";
+import "./main.scss";
 
 const NavigationIcon: FC<{
   icon: IconProp;
@@ -50,7 +51,9 @@ const NavigationIcon: FC<{
       className={classNames({
         "h-8 w-9 rounded-lg flex justify-center items-center bg-transparent cursor-click":
           true,
-        "hover:bg-gray-50 active:bg-gray-100 text-gray-700 disabled:text-gray-400":
+        "hover:bg-neutral-50 active:bg-neutral-100 text-neutral-700 disabled:text-neutral-400":
+          true,
+        "dark:hover:bg-neutral-900 dark:active:bg-neutral-800 dark:text-neutral-200 dark:disabled:text-neutral-600":
           !navigation.focusedTab?.color,
         [className]: !!navigation.focusedTab?.color,
       })}
@@ -87,7 +90,7 @@ const Navigation = observer(() => {
 
   return (
     <div
-      className="bg-white"
+      className="bg-white dark:bg-black"
       style={{
         backgroundColor: navigation.focusedTab?.color,
       }}
