@@ -117,6 +117,7 @@ class NavigationStore {
       color?: string;
       active: boolean;
       url: string;
+      loading: boolean;
     }[]
   ) {
     this.tabs = tabs.map((tab) => {

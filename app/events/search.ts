@@ -52,6 +52,7 @@ const loadSearchEvents = (windowManager: EngineWindowManager) => {
   ipcMain.handle(SearchEvents.HIDE_SEARCH, (event) => {
     const win = windowManager.fromWebContents(event.sender);
     if (!win || !search) return;
+    if (search.browserView.webContents.isFocused()) return;
     win.deleteOverlay(search);
     search = undefined;
   });

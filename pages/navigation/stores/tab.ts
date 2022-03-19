@@ -24,6 +24,7 @@ class Tab {
     title?: string;
     color?: string;
     url: string;
+    loading?: boolean;
   }) {
     makeObservable(this, {
       id: observable,
@@ -49,6 +50,7 @@ class Tab {
     this.id = options.id;
     this.title = options.title;
     this.color = options.color;
+    this.loading = options.loading;
     this.url = new URL(options.url);
   }
 

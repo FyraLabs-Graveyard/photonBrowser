@@ -13,6 +13,7 @@ declare global {
             color?: string;
             active: boolean;
             url: string;
+            loading: boolean;
           }
         ]
       >;

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
 import { debounce } from "lodash";
 import { observer } from "mobx-react-lite";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo } from "react";
 import { useColor } from ".";
 import { useNavigation } from "./stores";
 
@@ -49,8 +49,10 @@ const Search = observer(() => {
           onKeyDown={(event) => {
             if (event.key === "Enter" && navigation.focusedTab) {
               navigation.focusedTab.setInput("");
-              if (!!event.currentTarget?.value?.length)
+              if (!!event.currentTarget?.value?.length) {
+                debouncedUpdateSearchQuery?.cancel();
                 navigation.focusedTab?.load(event.currentTarget.value);
+              }
 
               event.currentTarget.blur();
             }
@@ -68,7 +70,7 @@ const Search = observer(() => {
             navigation.focusedTab.setInput(event.target.value ?? "");
             event.preventDefault();
           }}
-          // onBlur={window.skye.hideSearch}
+          onBlur={window.skye.hideSearch}
         />
       </div>
     </div>
