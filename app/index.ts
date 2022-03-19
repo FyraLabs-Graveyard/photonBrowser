@@ -7,6 +7,8 @@ import loadSearchEvents from "./events/search";
 import { BASE_SKYE_URL } from "./constants";
 import * as Sentry from "@sentry/electron";
 
+// TODO:https://github.com/karaggeorge/electron-builder-notarize/pull/15
+
 if (process.env.NODE_ENV !== "development") {
   Sentry.init({
     dsn: "https://ebbd115c83bb410b9b1faf3c9a7c44cb@o271654.ingest.sentry.io/6267288",
