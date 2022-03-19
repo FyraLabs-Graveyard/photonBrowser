@@ -1,16 +1,16 @@
 import zod from "zod";
 import { SearchEvents, SearchRendererEvents } from "./../../utils/constants";
-import { BrowserWindow, ipcMain } from "electron";
+import { app, ipcMain } from "electron";
 import { EngineWindow, EngineWindowManager } from "@getskye/engine";
 import { EngineOverlay } from "@getskye/engine/dist/models/overlay";
 import path from "path";
 import { ddg } from "@getskye/suggest";
-import { debounce } from "lodash";
+import { BASE_SKYE_URL } from "../constants";
 
 const generateSearch = (win: EngineWindow, onDelete: () => void) => {
   const search = win.createOverlay({
     top: true,
-    ui: { url: "http://localhost:3000/dialogs/search/index.html" },
+    ui: { url: BASE_SKYE_URL + "/dialogs/search/index.html" },
     backgroundColor: "#00000000",
     resize: {
       width: false,
@@ -19,7 +19,7 @@ const generateSearch = (win: EngineWindow, onDelete: () => void) => {
       vertical: false,
     },
     webPreferences: {
-      preload: path.join(__dirname, "..", "..", "preloads", "search.js"),
+      preload: path.join(app.getAppPath(), "preloads", "search.js"),
     },
     bounds: {
       x: Math.floor(win.browserWindow.getBounds().width / 2 - 460 / 2),

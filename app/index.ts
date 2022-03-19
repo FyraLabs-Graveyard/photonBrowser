@@ -1,13 +1,39 @@
-import { app, BrowserWindow, globalShortcut, ipcMain } from "electron";
+import { app, BrowserWindow, globalShortcut, protocol } from "electron";
 import { platform } from "os";
 import { EngineSession, EngineWindowManager } from "@getskye/engine";
 import path from "path";
 import loadTabEvents from "./events/tabs";
 import { RendererEvents } from "../utils/constants";
 import loadSearchEvents from "./events/search";
-import { string } from "zod";
+import { BASE_SKYE_URL } from "./constants";
 
 app.once("ready", async () => {
+  const rootPath = path.resolve(path.join(app.getAppPath(), "./dist"));
+
+  if (process.env.NODE_ENV !== "development") {
+    protocol.registerFileProtocol("skye", (request, callback) => {
+      const pathname = new URL(request.url).pathname;
+
+      if (pathname.indexOf("\0") !== -1) {
+        return callback({
+          statusCode: 404,
+        });
+      }
+
+      const filename = path.join(rootPath, pathname);
+
+      if (filename.indexOf(rootPath) !== 0) {
+        return callback({
+          statusCode: 404,
+        });
+      }
+
+      return callback({
+        path: filename,
+      });
+    });
+  }
+
   const defaultSession = new EngineSession({
     id: "default",
     persist: true,
@@ -38,10 +64,10 @@ app.once("ready", async () => {
     height: 700,
     titleBarStyle: "hiddenInset",
     ui: {
-      url: "http://localhost:3000/pages/navigation/index.html",
+      url: BASE_SKYE_URL + "/pages/navigation/index.html",
     },
     webPreferences: {
-      preload: path.join(__dirname, "..", "preloads", "navigation.js"),
+      preload: path.join(app.getAppPath(), "preloads", "navigation.js"),
     },
     waitForLoad: true,
     session: defaultSession,
@@ -51,9 +77,11 @@ app.once("ready", async () => {
     win.browserWindow.webContents.send(RendererEvents.TAB_FOCUSED, tab.id);
   });
 
-  win.browserWindow.webContents.openDevTools({
-    mode: "detach",
-  });
+  if (process.env.NODE_ENV === "development") {
+    win.browserWindow.webContents.openDevTools({
+      mode: "detach",
+    });
+  }
 
   const tabEvents = loadTabEvents(windowManager);
   loadSearchEvents(windowManager);
@@ -79,7 +107,7 @@ app.once("ready", async () => {
   window.setAlwaysOnTop(true, "floating", 1);
   window.setFullScreenable(false);
 
-  window.loadURL("http://localhost:3000/pages/search/index.html");
+  window.loadURL(BASE_SKYE_URL + "/pages/search/index.html");
 
   window.on("blur", () => {
     window.hide();
@@ -90,7 +118,8 @@ app.once("ready", async () => {
 });
 
 app.on("window-all-closed", () => {
-  if (platform() !== "darwin") {
-    app.quit();
-  }
+  // TODO: Fix reactivation of app on macOS
+  // if (platform() !== "darwin") {
+  app.quit();
+  // }
 });

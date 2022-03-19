@@ -1,5 +1,3 @@
-import normalizeUrl from "normalize-url";
-
 export const isURL = (input: string): boolean => {
   const pattern = /^(?:\w+:)?\/\/([^\s.]+\.\S{2}|localhost[:?\d]*)\S*$/;
 
