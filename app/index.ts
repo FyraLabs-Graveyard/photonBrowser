@@ -1,11 +1,17 @@
 import { app, BrowserWindow, globalShortcut, protocol } from "electron";
-import { platform } from "os";
 import { EngineSession, EngineWindowManager } from "@getskye/engine";
 import path from "path";
 import loadTabEvents from "./events/tabs";
 import { RendererEvents } from "../utils/constants";
 import loadSearchEvents from "./events/search";
 import { BASE_SKYE_URL } from "./constants";
+import * as Sentry from "@sentry/electron";
+
+if (process.env.NODE_ENV !== "development") {
+  Sentry.init({
+    dsn: "https://ebbd115c83bb410b9b1faf3c9a7c44cb@o271654.ingest.sentry.io/6267288",
+  });
+}
 
 app.once("ready", async () => {
   const rootPath = path.resolve(path.join(app.getAppPath(), "./dist"));

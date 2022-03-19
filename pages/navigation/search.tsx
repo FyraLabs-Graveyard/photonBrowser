@@ -70,7 +70,7 @@ const Search = observer(() => {
             navigation.focusedTab.setInput(event.target.value ?? "");
             event.preventDefault();
           }}
-          onBlur={window.skye.hideSearch}
+          onBlur={() => window.skye.hideSearch}
         />
       </div>
     </div>
