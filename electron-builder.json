@@ -3,6 +3,7 @@
   "productName": "Skye",
   "generateUpdatesFilesForAllChannels": true,
   "asar": true,
+  "afterSign": "electron-builder-notarize",
   "directories": {
     "output": "build",
     "buildResources": "static"
@@ -71,7 +72,9 @@
         "target": "default",
         "arch": "universal"
       }
-    ]
+    ],
+    "hardenedRuntime": true,
+    "entitlements": "./node_modules/electron-builder-notarize/entitlements.mac.inherit.plist"
   },
   "fileAssociations": [
     {
