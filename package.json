@@ -43,7 +43,7 @@
     "color": "^4.2.1",
     "concurrently": "^7.0.0",
     "electron": "^17.1.2",
-    "electron-builder": "^22.14.13",
+    "electron-builder": "^23.0.2",
     "electron-builder-notarize": "^1.4.0",
     "font-color-contrast": "^11.1.0",
     "framer-motion": "^6.2.8",
