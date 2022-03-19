@@ -8,7 +8,7 @@ specifiers:
   '@fortawesome/pro-solid-svg-icons': ^6.0.0
   '@fortawesome/pro-thin-svg-icons': ^6.0.0
   '@fortawesome/react-fontawesome': ^0.1.17
-  '@getskye/engine': link:../engine
+  '@getskye/engine': ^1.1.3
   '@getskye/suggest': ^1.0.1
   '@types/chrome': ^0.0.179
   '@types/color': ^3.0.3
@@ -46,7 +46,7 @@ specifiers:
   zod: ^3.13.4
 
 dependencies:
-  '@getskye/engine': link:../engine
+  '@getskye/engine': 1.1.3_electron@17.1.2
   '@getskye/suggest': 1.0.1
   zod: 3.13.4
 
@@ -461,6 +461,15 @@ packages:
       react: 17.0.2
     dev: true
 
+  /@getskye/engine/1.1.3_electron@17.1.2:
+    resolution: {integrity: sha512-Wu3dKdsbKR0Gee1r+stgENtw8WHebHB6KVGJiYnCuYB+W6ZPJxi1uc1J0gvYoJkRjo8HYXVfNt1DRgRtFEdhRw==, tarball: download/@getskye/engine/1.1.3/020a8388745668566e32d6494c608ef91f84107915e6a278426336fb377c1233}
+    peerDependencies:
+      electron: ^17.1.0
+    dependencies:
+      electron: 17.1.2
+      tsee: 1.3.2
+    dev: false
+
   /@getskye/suggest/1.0.1:
     resolution: {integrity: sha512-MGOCsaQbZa7qRRFdMfR7C87CXbf6tV3a3Cy1blAIoJ79zFVc3vYi3WprGaq833H7v4gZqZGzo0ttOehZ0tnYbw==, tarball: download/@getskye/suggest/1.0.1/893e78ce8f4b3cca9fb1877b3cacf86b89459621e2f8a9d6a5f5cfdacd6dfd4b}
     dependencies:
@@ -641,6 +650,10 @@ packages:
   /@types/ms/0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: true
+
+  /@types/node/12.20.47:
+    resolution: {integrity: sha512-BzcaRsnFuznzOItW1WpQrDHM7plAa7GIDMZ6b5pnMbkqEtM/6WCOhvZar39oeMQP79gwvFUWjjptE7/KGcNqFg==}
+    dev: false
 
   /@types/node/14.18.12:
     resolution: {integrity: sha512-q4jlIR71hUpWTnGhXWcakgkZeHa3CCjcQcnuzU8M891BAWA2jHiziiWEPEkdS5pFsz7H9HJiy8BrK7tBRNrY7A==}
@@ -3723,6 +3736,12 @@ packages:
       v8-compile-cache-lib: 3.0.0
       yn: 3.1.1
     dev: true
+
+  /tsee/1.3.2:
+    resolution: {integrity: sha512-+oKU7u1d5J+AEwbA4S7+aF3jdPS1RLcf5fzB6z6CMwJE1U2DCPD0AcaPmAisVEBQx6+ssUyThAEzSNZ59UmvXA==}
+    dependencies:
+      '@types/node': 12.20.47
+    dev: false
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
