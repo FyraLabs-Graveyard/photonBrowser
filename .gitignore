@@ -4,3 +4,4 @@ dist-main
 .DS_Store
 build
 .env
+electron-builder.env
