@@ -10,11 +10,10 @@
   },
   "files": ["static/**/*", "dist-main/**/*", "dist/**/*", "preloads/**/*"],
   "publish": [
-    "github",
     {
-      "provider": "snapStore",
-      "repo": "skye",
-      "channels": ["stable"]
+      "provider": "spaces",
+      "name": "skye",
+      "region": "sfo3"
     }
   ],
   "linux": {
