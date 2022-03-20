@@ -23,9 +23,6 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - uses: jgierer12/npm-auth-gpr@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Configure fontawesome
         uses: DamianReeves/write-file-action@v1.0
         with:
@@ -33,6 +30,7 @@ jobs:
           contents: |
             @fortawesome:registry=https://npm.fontawesome.com/
             //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}
+            //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
           write-mode: append
       - uses: pnpm/action-setup@v2.0.1
         with:
