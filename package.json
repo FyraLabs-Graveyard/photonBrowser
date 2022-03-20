@@ -10,8 +10,8 @@
     "build:renderer": "vite build",
     "build:main": "tsc -p ./app/tsconfig.json",
     "postinstall": "electron-builder install-app-deps",
-    "build": "concurrently 'pnpm run build:main' 'pnpm run build:renderer' && electron-builder",
-    "build:publish": "concurrently 'pnpm run build:main' 'pnpm run build:renderer' && electron-builder --publish always"
+    "build": "concurrently 'pnpm run build:main' 'pnpm run build:renderer' && electron-builder -mwl",
+    "build:publish": "concurrently 'pnpm run build:main' 'pnpm run build:renderer' && electron-builder -mwl --publish always"
   },
   "main": "./dist-main/app/index.js",
   "repository": {
