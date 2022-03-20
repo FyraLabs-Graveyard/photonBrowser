@@ -9,7 +9,7 @@ on:
     types: [created]
 
 jobs:
-  publish-gpr:
+  release:
     runs-on: ubuntu-latest
     permissions:
       contents: read
