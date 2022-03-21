@@ -22,8 +22,13 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-          registry-url: https://npm.pkg.github.com/
-      - name: Configure fontawesome
+      - name: Configure GPR
+        uses: DamianReeves/write-file-action@v1.0
+        with:
+          path: .npmrc
+          contents: //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
+          write-mode: append
+      - name: Configure Fontawesome
         uses: DamianReeves/write-file-action@v1.0
         with:
           path: .npmrc
