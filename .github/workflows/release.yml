@@ -28,7 +28,6 @@ jobs:
         with:
           path: .npmrc
           contents: |
-            @fortawesome:registry=https://npm.fontawesome.com/
             //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}
             //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
           write-mode: append
