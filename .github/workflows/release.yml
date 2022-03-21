@@ -25,6 +25,14 @@ jobs:
       - name: Install snapcraft
         if: matrix.os == 'ubuntu-latest'
         run: sudo snap install snapcraft --classic
+        
+      - name: Login into snapcraft
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          cat "$SNAPCRAFT_TOKEN" > $RUNNER_TEMP/snapcraft-token
+          snapcraft login --with $RUNNER_TEMP/snapcraft-token
+        env:
+          SNAPCRAFT_TOKEN: ${{ secrets.SNAPCRAFT_TOKEN }}
 
       - name: Configure Fontawesome
         uses: DamianReeves/write-file-action@v1.0
