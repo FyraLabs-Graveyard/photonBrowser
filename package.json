@@ -24,6 +24,7 @@
     "url": "https://github.com/getskye/browser/issues"
   },
   "homepage": "https://github.com/getskye/browser#readme",
+  "email": "contact@innatical.com",
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.0",
     "@fortawesome/pro-duotone-svg-icons": "^6.1.0",
