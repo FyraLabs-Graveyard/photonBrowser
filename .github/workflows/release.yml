@@ -51,7 +51,7 @@ jobs:
         with:
           version: "6.x"
           run_install: true
-      - run: pnpm run build:release
+      - run: pnpm run build:publish
         env:
           APPLE_API_KEY: ${{ secrets.APPLE_API_KEY }}
           APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
