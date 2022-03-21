@@ -56,6 +56,7 @@ jobs:
           version: "6.x"
           run_install: true
       - run: cat ${{ env.RUNNER_TEMP }}/authkey.p8
+        if: matrix.os == 'macos-latest'
       - run: pnpm run build:publish
         env:
           APPLE_API_KEY: ${{ env.RUNNER_TEMP }}/authkey.p8
