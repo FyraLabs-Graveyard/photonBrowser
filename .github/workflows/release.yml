@@ -38,7 +38,7 @@ jobs:
           KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
           AUTHKEY_PATH=$RUNNER_TEMP/authkey.p8
           
-          echo -n "$APPLE_API_KEY" > AUTHKEY_PATH
+          echo -n "$APPLE_API_KEY" > $AUTHKEY_PATH
 
           # import certificate and provisioning profile from secrets
           echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode --output $CERTIFICATE_PATH
@@ -55,8 +55,6 @@ jobs:
         with:
           version: "6.x"
           run_install: true
-      - run: cat $RUNNER_TEMP/authkey.p8
-        if: matrix.os == 'macos-latest'
       - run: pnpm run build:publish
         env:
           APPLE_API_KEY: ${{ env.RUNNER_TEMP }}/authkey.p8
