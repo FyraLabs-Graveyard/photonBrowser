@@ -58,4 +58,5 @@ jobs:
           APPLE_API_KEY_ISSUER: ${{ secrets.APPLE_API_KEY_ISSUER }}
           DO_KEY_ID: ${{ secrets.DO_KEY_ID }}
           DO_SECRET_KEY: ${{ secrets.DO_SECRET_KEY }}
-          TEAM_SHORT_NAME: ${{ secrets.TEAM_SHORT_NAME }}        
+          TEAM_SHORT_NAME: ${{ secrets.TEAM_SHORT_NAME }}
+        shell: bash
