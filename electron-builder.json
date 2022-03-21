@@ -13,7 +13,8 @@
     {
       "provider": "spaces",
       "name": "skye",
-      "region": "sfo3"
+      "region": "sfo3",
+      "path": "/releases"
     }
   ],
   "linux": {
