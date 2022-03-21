@@ -27,9 +27,7 @@ jobs:
         uses: DamianReeves/write-file-action@v1.0
         with:
           path: .npmrc
-          contents: |
-            //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}
-            //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
+          contents: //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}
           write-mode: append
       - uses: pnpm/action-setup@v2.0.1
         with:
