@@ -57,7 +57,7 @@ jobs:
           run_install: true
       - run: pnpm run build:publish
         env:
-          APPLE_API_KEY: "$RUNNER_TEMP/authkey.p8"
+          APPLE_API_KEY: ${{ env.RUNNER_TEMP }}/authkey.p8
           APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
           APPLE_API_KEY_ISSUER: ${{ secrets.APPLE_API_KEY_ISSUER }}
           DO_KEY_ID: ${{ secrets.DO_KEY_ID }}
