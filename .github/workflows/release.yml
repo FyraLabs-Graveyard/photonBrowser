@@ -22,16 +22,15 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-          registry-url: https://npm.pkg.github.com/
-      - name: Configure fontawesome
+      - name: Configure Fontawesome
         uses: DamianReeves/write-file-action@v1.0
         with:
           path: .npmrc
-          contents: |
-            @fortawesome:registry=https://npm.fontawesome.com/
-            //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}
+          contents: |2
             //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
+            //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}
           write-mode: append
+      - run: cat .npmrc
       - uses: pnpm/action-setup@v2.0.1
         with:
           version: "6.x"
