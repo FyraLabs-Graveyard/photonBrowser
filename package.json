@@ -1,6 +1,6 @@
 {
   "name": "@getskye/browser",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A fast, beautiful, private web browser, designed for you",
   "scripts": {
     "start:renderer": "vite preview",
