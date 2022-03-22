@@ -3,13 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
 import { debounce } from "lodash";
 import { observer } from "mobx-react-lite";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useColor } from ".";
 import { useNavigation } from "./stores";
 
 const Search = observer(() => {
   const navigation = useNavigation();
   const className = useColor();
+  const [focused, setFocused] = useState(false);
 
   const debouncedUpdateSearchQuery = useMemo(
     () =>
@@ -23,6 +24,17 @@ const Search = observer(() => {
       debouncedUpdateSearchQuery?.cancel();
     };
   }, [debouncedUpdateSearchQuery]);
+
+  // TODO: Move this into the actual model
+  useEffect(() => {
+    if (!focused) return;
+
+    navigation.focusedTab?.setInput(navigation.focusedTab.url.toString());
+
+    return () => {
+      navigation.focusedTab?.setInput(navigation.focusedTab.url.hostname);
+    };
+  }, [focused, navigation.focusedTab]);
 
   return (
     <div className="bg-transparent absolute top-0 left-0 w-[28rem] max-w-xl pr-1 pl-1 right-0 bottom-0 ml-auto mr-auto flex justify-center items-center z-0 overflow-hidden">
@@ -62,6 +74,8 @@ const Search = observer(() => {
               navigation.focusedTab.setInput(event.target.value ?? "");
               navigation.focusedTab.updateSearchQuery(event.target.value);
             }
+
+            setFocused(true);
           }}
           onChange={(event) => {
             if (!navigation.focusedTab) return;
@@ -70,7 +84,10 @@ const Search = observer(() => {
             navigation.focusedTab.setInput(event.target.value ?? "");
             event.preventDefault();
           }}
-          onBlur={() => window.skye.hideSearch}
+          onBlur={() => {
+            window.skye.hideSearch();
+            setFocused(false);
+          }}
         />
       </div>
     </div>

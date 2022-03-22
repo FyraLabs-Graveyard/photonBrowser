@@ -28,11 +28,15 @@ const generateSearch = (win: EngineWindow, onDelete: () => void) => {
       height: 520,
     },
   });
-  win.browserWindow.on("resize", () => {
+
+  const resizeHandler = () => {
     if (!search) return;
     win.deleteOverlay(search);
     onDelete();
-  });
+    // win.browserWindow.off("resize", resizeHandler);
+  };
+
+  win.browserWindow.on("resize", resizeHandler);
   return search;
 };
 
