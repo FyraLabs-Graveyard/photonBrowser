@@ -1,4 +1,4 @@
-import { action, makeObservable, observable } from "mobx";
+import { action, autorun, makeObservable, observable } from "mobx";
 import normalizeUrl from "normalize-url";
 import { isURL } from "../../../utils/url";
 
@@ -45,6 +45,7 @@ class Tab {
       setCanNavigateBackward: action,
       setCanNavigateForward: action,
       load: action,
+      setURL: action,
     });
 
     this.id = options.id;
@@ -109,6 +110,17 @@ class Tab {
 
   setCanNavigateForward(value: boolean) {
     this.canNavigateForward = value;
+  }
+
+  setURL(url: string) {
+    this.url = new URL(url);
+    this.input = normalizeUrl(url.toString(), {
+      stripProtocol: true,
+      stripHash: true,
+      stripWWW: true,
+      stripTextFragment: true,
+      removeQueryParameters: true,
+    });
   }
 
   close = () => {

@@ -92,11 +92,13 @@ class NavigationStore {
         id: string;
         canNavigateBackward: boolean;
         canNavigateForward: boolean;
+        url: string;
       }) => {
         const tab = this.findTab(state.id);
 
         tab?.setCanNavigateBackward(state.canNavigateBackward);
         tab?.setCanNavigateForward(state.canNavigateForward);
+        tab?.setURL(state.url);
       }
     );
 

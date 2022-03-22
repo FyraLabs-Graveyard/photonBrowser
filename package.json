@@ -68,7 +68,7 @@
     "vite": "^2.8.6"
   },
   "dependencies": {
-    "@getskye/engine": "^1.1.3",
+    "@getskye/engine": "^1.2.0",
     "@getskye/suggest": "^1.0.1",
     "@sentry/electron": "^3.0.4",
     "zod": "^3.14.2"
