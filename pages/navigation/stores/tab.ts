@@ -65,13 +65,7 @@ class Tab {
     if (isURL(input)) {
       const url = normalizeUrl(input);
       this.url = new URL(url);
-      this.input = normalizeUrl(input, {
-        stripProtocol: true,
-        stripHash: true,
-        stripWWW: true,
-        stripTextFragment: true,
-        removeQueryParameters: true,
-      });
+      this.input = this.url.hostname;
       window.skye.loadURL(url);
     } else {
       const url = normalizeUrl(
@@ -114,13 +108,7 @@ class Tab {
 
   setURL(url: string) {
     this.url = new URL(url);
-    this.input = normalizeUrl(url.toString(), {
-      stripProtocol: true,
-      stripHash: true,
-      stripWWW: true,
-      stripTextFragment: true,
-      removeQueryParameters: true,
-    });
+    this.input = this.url.hostname;
   }
 
   close = () => {
