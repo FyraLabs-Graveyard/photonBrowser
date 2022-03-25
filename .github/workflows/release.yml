@@ -78,3 +78,4 @@ jobs:
           DO_KEY_ID: ${{ secrets.DO_KEY_ID }}
           DO_SECRET_KEY: ${{ secrets.DO_SECRET_KEY }}
           TEAM_SHORT_NAME: ${{ secrets.TEAM_SHORT_NAME }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
