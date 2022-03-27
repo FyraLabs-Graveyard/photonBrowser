@@ -1,5 +1,5 @@
 import { RendererEvents } from "./../../utils/constants";
-import { EngineWindow, EngineWindowManager } from "@getskye/engine";
+import { EngineWindow, EngineWindowManager } from "@fyralabs/photon-engine";
 import { ipcMain, nativeTheme } from "electron";
 import { TabEvents } from "../../utils/constants";
 

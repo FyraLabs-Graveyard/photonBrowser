@@ -56,8 +56,8 @@ class Tab {
   }
 
   updateSearchQuery = (query: string) => {
-    if (!query?.length) return window.skye.hideSearch();
-    window.skye.updateSearchQuery(query);
+    if (!query?.length) return window.photon.hideSearch();
+    window.photon.updateSearchQuery(query);
   };
 
   load(input: string) {
@@ -66,16 +66,16 @@ class Tab {
       const url = normalizeUrl(input);
       this.url = new URL(url);
       this.input = this.url.hostname;
-      window.skye.loadURL(url);
+      window.photon.loadURL(url);
     } else {
       const url = normalizeUrl(
         `https://duckduckgo.com/?q=${encodeURIComponent(input)}`
       );
       this.url = new URL(url);
       this.input = input;
-      window.skye.loadURL(url);
+      window.photon.loadURL(url);
     }
-    window.skye.hideSearch();
+    window.photon.hideSearch();
   }
 
   setInput(input: string) {
@@ -112,27 +112,27 @@ class Tab {
   }
 
   close = () => {
-    window.skye.deleteTab(this.id);
+    window.photon.deleteTab(this.id);
   };
 
   focus = () => {
-    window.skye.focusTab(this.id);
+    window.photon.focusTab(this.id);
   };
 
   reload() {
-    window.skye.reloadTab(this.id);
+    window.photon.reloadTab(this.id);
   }
 
   cancel() {
-    window.skye.cancelTabNavigation(this.id);
+    window.photon.cancelTabNavigation(this.id);
   }
 
   navigateForward() {
-    window.skye.navigateForward(this.id);
+    window.photon.navigateForward(this.id);
   }
 
   navigateBackward() {
-    window.skye.navigateBackward(this.id);
+    window.photon.navigateBackward(this.id);
   }
 }
 

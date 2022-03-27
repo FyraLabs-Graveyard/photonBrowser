@@ -1,4 +1,4 @@
-import { RootObject } from "@getskye/suggest/dist/engines/ddg";
+import { RootObject } from "@fyralabs/photon-suggest/dist/engines/ddg";
 
 const Software = (instantAnswer: RootObject) => {
   return (

@@ -1,4 +1,4 @@
-import { RootObject } from "@getskye/suggest/dist/engines/ddg";
+import { RootObject } from "@fyralabs/photon-suggest/dist/engines/ddg";
 
 const Abstract = (instantAnswer: RootObject) => {
   return (
@@ -6,7 +6,7 @@ const Abstract = (instantAnswer: RootObject) => {
       className="px-4 mt-4 cursor-pointer"
       onClick={() =>
         instantAnswer.AbstractURL &&
-        window.skye.loadURL(instantAnswer.AbstractURL)
+        window.photon.loadURL(instantAnswer.AbstractURL)
       }
     >
       <div className="flex items-center gap-1 font-medium cursor-pointer">

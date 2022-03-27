@@ -1,4 +1,4 @@
 export const BASE_SKYE_URL =
   process.env.NODE_ENV !== "development"
-    ? "skye://ui"
+    ? "photon://ui"
     : "http://localhost:3000";

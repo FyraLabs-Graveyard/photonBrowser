@@ -127,7 +127,7 @@ const Navigation = observer(() => {
           <div className="no-drag">
             <NavigationIcon
               icon={faPlus}
-              onClick={() => window.skye.createTab()}
+              onClick={() => window.photon.createTab()}
             />
           </div>
         </div>

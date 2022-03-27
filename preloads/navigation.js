@@ -13,7 +13,7 @@ const tabWhitelist = [
 ];
 
 (async () => {
-  contextBridge.exposeInMainWorld("skye", {
+  contextBridge.exposeInMainWorld("photon", {
     loadURL: (url) => ipcRenderer.invoke("LOAD_URL", url),
     fetchTabs: () => ipcRenderer.invoke("FETCH_TABS"),
     showSearch: () => ipcRenderer.invoke("SHOW_SEARCH"),

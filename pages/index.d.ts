@@ -4,7 +4,7 @@ import { RendererEvents } from "../utils/constants";
 export {};
 declare global {
   interface Window {
-    skye: {
+    photon: {
       fetchTabs: () => Promise<
         [
           {

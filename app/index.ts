@@ -1,5 +1,5 @@
 import { app, BrowserWindow, globalShortcut, protocol } from "electron";
-import { EngineSession, EngineWindowManager } from "@getskye/engine";
+import { EngineSession, EngineWindowManager } from "@fyralabs/photon-engine";
 import path from "path";
 import loadTabEvents from "./events/tabs";
 import { RendererEvents } from "../utils/constants";
@@ -19,7 +19,7 @@ app.once("ready", async () => {
   const rootPath = path.resolve(path.join(app.getAppPath(), "./dist"));
 
   if (process.env.NODE_ENV !== "development") {
-    protocol.registerFileProtocol("skye", (request, callback) => {
+    protocol.registerFileProtocol("photon", (request, callback) => {
       const pathname = new URL(request.url).pathname;
 
       if (pathname.indexOf("\0") !== -1) {

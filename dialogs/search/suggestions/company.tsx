@@ -1,4 +1,4 @@
-import { Icon, RootObject } from "@getskye/suggest/dist/engines/ddg";
+import { Icon, RootObject } from "@fyralabs/photon-suggest/dist/engines/ddg";
 
 const Company = (instantAnswer: RootObject) => {
   const companyResult = instantAnswer.Results[0] as {
@@ -10,7 +10,7 @@ const Company = (instantAnswer: RootObject) => {
       <div
         className="p-4 flex items-center gap-1 font-medium cursor-pointer"
         onClick={() =>
-          companyResult.FirstURL && window.skye.loadURL(companyResult.FirstURL)
+          companyResult.FirstURL && window.photon.loadURL(companyResult.FirstURL)
         }
       >
         {companyResult.Icon && (

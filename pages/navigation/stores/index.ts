@@ -21,11 +21,11 @@ class NavigationStore {
     });
 
     (async () => {
-      const tabs = await window.skye.fetchTabs();
+      const tabs = await window.photon.fetchTabs();
       this.loadTabs(tabs);
     })();
 
-    window.skye.on(
+    window.photon.on(
       RendererEvents.TAB_CREATED,
       ({
         id,
@@ -56,37 +56,37 @@ class NavigationStore {
       }
     );
 
-    window.skye.on(
+    window.photon.on(
       RendererEvents.TAB_TITLE_CHANGED,
       ({ id, title }: { id: string; title: string | undefined }) => {
         this.findTab(id)?.setTitle(title);
       }
     );
 
-    window.skye.on(
+    window.photon.on(
       RendererEvents.TAB_THEME_COLOR_CHANGED,
       ({ id, color }: { id: string; color: string | undefined }) => {
         this.findTab(id)?.setColor(color);
       }
     );
 
-    window.skye.on(RendererEvents.TAB_DELETED, (id: string) => {
+    window.photon.on(RendererEvents.TAB_DELETED, (id: string) => {
       this.removeTab(id);
     });
 
-    window.skye.on(RendererEvents.TAB_FOCUSED, (id: string) => {
+    window.photon.on(RendererEvents.TAB_FOCUSED, (id: string) => {
       this.focusTab(id);
     });
 
-    window.skye.on(RendererEvents.TAB_LOAD_START, (id: string) => {
+    window.photon.on(RendererEvents.TAB_LOAD_START, (id: string) => {
       this.findTab(id)?.setLoading(true);
     });
 
-    window.skye.on(RendererEvents.TAB_LOAD_STOP, (id: string) => {
+    window.photon.on(RendererEvents.TAB_LOAD_STOP, (id: string) => {
       this.findTab(id)?.setLoading(false);
     });
 
-    window.skye.on(
+    window.photon.on(
       RendererEvents.TAB_NAVIGATION_STATE_CHANGED,
       (state: {
         id: string;
@@ -104,7 +104,7 @@ class NavigationStore {
 
     autorun(() => {
       this.focusedTab;
-      window.skye.hideSearch();
+      window.photon.hideSearch();
     });
   }
 

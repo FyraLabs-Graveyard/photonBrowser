@@ -1,8 +1,8 @@
 import { SearchRendererEvents } from "./../../../utils/constants";
 import { makeObservable, observable, action } from "mobx";
-import { Result } from "@getskye/suggest";
+import { Result } from "@fyralabs/photon-suggest";
 import { createContext, useContext } from "react";
-import { DuckDuckGo, RootObject } from "@getskye/suggest/dist/engines/ddg";
+import { DuckDuckGo, RootObject } from "@fyralabs/photon-suggest/dist/engines/ddg";
 class SearchStore {
   public query: string = "";
   public searchEngineSuggestions: Result = [];
@@ -19,7 +19,7 @@ class SearchStore {
       updateSearchEngineSuggestions: action,
     });
 
-    window.skye.on(
+    window.photon.on(
       SearchRendererEvents.SEARCH_QUERY_UPDATED,
       (query: string, ddg: DuckDuckGo) => {
         this.updateQuery(query);

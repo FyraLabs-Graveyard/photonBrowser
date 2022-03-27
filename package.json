@@ -1,5 +1,5 @@
 {
-  "name": "@getskye/browser",
+  "name": "@fyralabs/photon",
   "version": "1.2.0",
   "description": "A fast, beautiful, private web browser, designed for you",
   "scripts": {
@@ -16,14 +16,14 @@
   "main": "./dist-main/app/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/getskye/browser.git"
+    "url": "git+https://github.com/fyralabs/photonBrowser.git"
   },
-  "author": "Innatical, LLC <contact@innatical.com>",
+  "author": "Fyra Labs <contact@fyralabs.com>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/getskye/browser/issues"
+    "url": "https://github.com/fyralabs/photonBrowser/issues"
   },
-  "homepage": "https://github.com/getskye/browser#readme",
+  "homepage": "https://github.com/fyralabs/photonBrowser#readme",
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.0",
     "@fortawesome/pro-duotone-svg-icons": "^6.1.0",
@@ -68,8 +68,8 @@
     "vite": "^2.8.6"
   },
   "dependencies": {
-    "@getskye/engine": "^1.2.0",
-    "@getskye/suggest": "^1.0.1",
+    "@fyralabs/photon-engine": "^1.2.0",
+    "@fyralabs/photon-suggest": "^1.0.1",
     "@sentry/electron": "^3.0.4",
     "zod": "^3.14.2"
   }

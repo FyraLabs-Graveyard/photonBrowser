@@ -1,4 +1,4 @@
-import { Icon, RootObject } from "@getskye/suggest/dist/engines/ddg";
+import { Icon, RootObject } from "@fyralabs/photon-suggest/dist/engines/ddg";
 import { observer } from "mobx-react-lite";
 import { Fragment, useEffect } from "react";
 import { render } from "react-dom";
@@ -16,7 +16,7 @@ const Search = observer(() => {
   console.log(search.instantAnswer);
 
   useEffect(() => {
-    window.skye.resize(height + 40);
+    window.photon.resize(height + 40);
   }, [height]);
 
   return (
@@ -50,7 +50,7 @@ const Search = observer(() => {
                   <a
                     className="py-1 cursor-pointer flex items-center gap-2"
                     onClick={() =>
-                      window.skye.loadURL(
+                      window.photon.loadURL(
                         `https://duckduckgo.com?q=${encodeURIComponent(result)}`
                       )
                     }

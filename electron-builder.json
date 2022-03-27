@@ -1,6 +1,6 @@
 {
-  "appId": "com.innatical.skye",
-  "productName": "Skye",
+  "appId": "com.fyralabs.photon",
+  "productName": "photonBrowser",
   "generateUpdatesFilesForAllChannels": true,
   "asar": true,
   "afterSign": "electron-builder-notarize",
@@ -13,13 +13,13 @@
     "github",
     {
       "provider": "snapStore",
-      "repo": "skye",
+      "repo": "photon",
       "channels": ["stable"]
     }
   ],
   "linux": {
     "category": "Network",
-    "executableName": "skye",
+    "executableName": "photon",
     "artifactName": "${productName}-${version}.${ext}",
     "desktop": {
       "Comment": "Browse the Web",

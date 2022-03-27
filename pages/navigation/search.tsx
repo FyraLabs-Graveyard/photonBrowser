@@ -85,7 +85,7 @@ const Search = observer(() => {
             event.preventDefault();
           }}
           onBlur={() => {
-            window.skye.hideSearch();
+            window.photon.hideSearch();
             setFocused(false);
           }}
         />

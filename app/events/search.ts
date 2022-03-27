@@ -1,10 +1,10 @@
 import zod from "zod";
 import { SearchEvents, SearchRendererEvents } from "./../../utils/constants";
 import { app, ipcMain } from "electron";
-import { EngineWindow, EngineWindowManager } from "@getskye/engine";
-import { EngineOverlay } from "@getskye/engine/dist/models/overlay";
+import { EngineWindow, EngineWindowManager } from "@fyralabs/photon-engine";
+import { EngineOverlay } from "@fyralabs/photon-engine/dist/models/overlay";
 import path from "path";
-import { ddg } from "@getskye/suggest";
+import { ddg } from "@fyralabs/photon-suggest";
 import { BASE_SKYE_URL } from "../constants";
 
 const generateSearch = (win: EngineWindow, onDelete: () => void) => {
